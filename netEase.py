@@ -20,6 +20,7 @@ class NetEase():
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36'
         }
         
+        
     def search_song(self, songs, sid=1, stype=1, offset=0, total='true', limit=60):
         base_url = "http://music.163.com/api/search/get"
         search_data = {'s': songs,
@@ -43,6 +44,7 @@ class NetEase():
         return music_url
     
 if __name__ == '__main__':
+    chrome_path = "open -a /usr/bin/chromium %s"
     test = NetEase()
     music_url = test.get_music_url("朴树那些花儿")
-    webbrowser.open(music_url, new=0, autoraise=False)
+    webbrowser.get(chrome_path).open(music_url, new=0, autoraise=False)
