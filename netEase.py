@@ -44,7 +44,7 @@ class NetEase():
         return music_url
     
 if __name__ == '__main__':
-    chrome_path = "open -a /usr/bin/chromium %s"
     test = NetEase()
     music_url = test.get_music_url("朴树那些花儿")
-    webbrowser.get(chrome_path).open(music_url, new=0, autoraise=False)
+    webbrowser.get('chromium').open(music_url, new=0, autoraise=False)
+
