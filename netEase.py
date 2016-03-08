@@ -35,7 +35,7 @@ class NetEase():
         result_dict = json.loads(connect.text)
 
         
-        if result_dict['code'] == 200:
+        if result_dict['code'] == 200:                               #音乐获取成功
             try:
                 os.system("killall epiphany-browser")
             except:
@@ -46,15 +46,6 @@ class NetEase():
         else:
             pass
         
-
-        if result_dict['code'] == 200:     #音乐获取成功
-            try:
-                os.system("killall epiphany-browser")
-            except:
-                pass
-            song_sum = int(result_dict['result']['songCount'])                       #歌曲总数
-            song_num = random.randint(0, song_sum-1)
-            return result_dict['result']['songs'][song_num]['id']
         
 
 
@@ -75,5 +66,5 @@ class NetEase():
 if __name__ == '__main__':
     test = NetEase()
     music_url = test.get_music_url("南山南")
-    webbrowser.get('epiphany').open(music_url, new=0, autoraise=False)
+    test.open_web(music_url)
 

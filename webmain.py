@@ -72,9 +72,6 @@ class Weixin:
         
         return "播放成功"
  
-       
-                
-
     
 if __name__ == "__main__":
     app.run()
