@@ -34,9 +34,16 @@ class NetEase():
         connect.encoding='utf-8'
         result_dict = json.loads(connect.text)
         
-        song_sum = len(result_dict['result']['songs'])                       #歌曲总数
-        song_num = random.randint(0, song_sum)
-        return result_dict['result']['songs'][song_num]['id']
+        if result_dict['code'] == 200:
+            try:
+                os.system("killall epiphany-browser")
+            except:
+                pass
+            song_sum = len(result_dict['result']['songs'])                       #歌曲总数
+            song_num = random.randint(0, song_sum-1)
+            return result_dict['result']['songs'][song_num]['id']
+        else:
+            pass
         
     def get_music_url(self, songs):
         song_id = self.search_song(songs)
@@ -46,5 +53,5 @@ class NetEase():
 if __name__ == '__main__':
     test = NetEase()
     music_url = test.get_music_url("朴树那些花儿")
-    webbrowser.get('chromium').open(music_url, new=0, autoraise=False)
+    webbrowser.get().open(music_url, new=0, autoraise=False)
 
