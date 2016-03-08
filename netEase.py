@@ -19,20 +19,34 @@ class NetEase():
             'Referer': 'http://music.163.com/search/',
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36'
         }
-        
+
+
     def search_song(self, songs, sid=1, stype=1, offset=0, total='true', limit=60):
         base_url = "http://music.163.com/api/search/get"
         search_data = {'s': songs,
             'id':sid,
             'type':stype,
-            'offset':offset, 
+            'offset':offset,
             'total':total,
             'limit':limit,
             }
         connect = requests.post(base_url, data=search_data, headers=self.header)
         connect.encoding='utf-8'
         result_dict = json.loads(connect.text)
+
         
+        if result_dict['code'] == 200:
+            try:
+                os.system("killall epiphany-browser")
+            except:
+                pass
+            song_sum = len(result_dict['result']['songs'])                       #歌曲总数
+            song_num = random.randint(0, song_sum-1)
+            return result_dict['result']['songs'][song_num]['id']
+        else:
+            pass
+        
+<<<<<<< HEAD
         if result_dict['code'] == 200:     #音乐获取成功
             try:
                 os.system("killall epiphany-browser")
@@ -42,17 +56,31 @@ class NetEase():
             song_num = random.randint(0, song_sum-1)
             return result_dict['result']['songs'][song_num]['id']
         
+=======
+
+
+        song_sum = len(result_dict['result']['songs'])                       #歌曲总数
+        song_num = random.randint(0, song_sum)
+        return result_dict['result']['songs'][song_num]['id']
+
+
+>>>>>>> 1342b1bb51a8d7cc95ba4c9815508710fc7344e6
     def get_music_url(self, songs):
         song_id = self.search_song(songs)
         music_url = "http://music.163.com/outchain/player?type=2&id=%s&auto=1" %song_id
         return music_url
+<<<<<<< HEAD
     
     def open_web(self, music_url):
         try:
             webbrowser.get().open(music_url, new=0, autoraise=False)
         except:
             pass
+=======
+
+>>>>>>> 1342b1bb51a8d7cc95ba4c9815508710fc7344e6
 if __name__ == '__main__':
     test = NetEase()
-    music_url = test.get_music_url("朴树那些花儿")
-    webbrowser.open(music_url, new=0, autoraise=False)
+    music_url = test.get_music_url("南山南")
+    webbrowser.get('epiphany').open(music_url, new=0, autoraise=False)
+
