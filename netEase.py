@@ -53,5 +53,5 @@ class NetEase():
 if __name__ == '__main__':
     test = NetEase()
     music_url = test.get_music_url("朴树那些花儿")
-    webbrowser.get().open(music_url, new=0, autoraise=False)
+    webbrowser.get('epiphany').open(music_url, new=0, autoraise=False)
 
