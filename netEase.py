@@ -42,7 +42,7 @@ class NetEase():
                 pass
             song_sum = len(result_dict['result']['songs'])                       #歌曲总数
             song_num = random.randint(0, song_sum-1)
-            return result_dict['result']['songs'][song_num]['id']
+            return result_dict['result']['songs'][0]['id']
         else:
             pass
         
