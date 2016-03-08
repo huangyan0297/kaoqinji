@@ -18,7 +18,7 @@ app = web.application(urls, globals())
 class hello:
     def GET(self):
         return "hello"
-    
+
 class Weixin:
 
     def __init__(self):
@@ -45,33 +45,40 @@ class Weixin:
 
         #如果是来自微信的请求，则回复echostr
         if hashcode == signature:
-            return echostr     
-  
-        
+            return echostr
+
+
     def POST(self):
         str_xml = web.data() #获得post来的数据
         xml = etree.fromstring(str_xml)#进行XML解析
         fromUser=xml.find("FromUserName").text
         toUser=xml.find("ToUserName").text
         msgType=xml.find("MsgType").text
-        
+
         msgTypeDict = {'event': self.eventAction, 'text': self.textAction} #消息类型字典
         resContent = msgTypeDict[msgType](xml)
         return self.render.reply_text(fromUser,toUser,int(time.time()),resContent)
-    
+
     def eventAction(self, xml): #事件消息处理
         if(xml.find("Event").text == 'subscribe'): #用户首次关注
             text = "你好，欢迎关注yaphone音乐播放器"
-        return text    
-    
+        return text
+
     def textAction(self, xml): #文本信息处理
         content=xml.find("Content").text#获得用户所输入的内容
-        music_box = netEase.NetEase()
-        music_url = music_box.get_music_url(content)
-        music_box.open_web(music_url)
-        
-        return "播放成功"
- 
-    
+
+        if content != u'关闭':
+            music_box = netEase.NetEase()
+            music_url = music_box.get_music_url(content)
+            music_box.open_web(music_url)
+            return "播放成功"
+        else:
+            try:
+                os.system('killall epiphany-browser')
+                return "音乐已关闭"
+            except:
+                pass
+
+
 if __name__ == "__main__":
     app.run()

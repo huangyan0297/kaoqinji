@@ -34,7 +34,7 @@ class NetEase():
         connect.encoding='utf-8'
         result_dict = json.loads(connect.text)
 
-        
+
         if result_dict['code'] == 200:                               #音乐获取成功
             try:
                 os.system("killall epiphany-browser")
@@ -45,8 +45,8 @@ class NetEase():
             return result_dict['result']['songs'][0]['id']
         else:
             pass
-        
-        
+
+
 
 
 
@@ -55,10 +55,10 @@ class NetEase():
         music_url = "http://music.163.com/outchain/player?type=2&id=%s&auto=1" %song_id
         return music_url
 
-    
+
     def open_web(self, music_url):
         try:
-            webbrowser.get().open(music_url, new=0, autoraise=False)
+            webbrowser.get('epiphany').open(music_url, new=0, autoraise=False)
         except:
             pass
 
@@ -66,5 +66,6 @@ class NetEase():
 if __name__ == '__main__':
     test = NetEase()
     music_url = test.get_music_url("南山南")
-    test.open_web(music_url)
+    webbrowser.get('epiphany').open(music_url)
+#    test.open_web(music_url)
 
