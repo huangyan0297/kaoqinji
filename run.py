@@ -7,6 +7,7 @@ itchat.auto_login()
 
 @itchat.msg_register('Text')
 def music_player(msg):
+    if not msg['FromUserName'] == msg['ToUserName']: return
     if msg['Text'] != u'关闭':
         music_box = netEase.NetEase()
         music_url = music_box.get_music_url(msg['Text'])

@@ -58,7 +58,7 @@ class NetEase():
 
     def open_web(self, music_url):
         try:
-            webbrowser.open(music_url, new=0, autoraise=False)
+            webbrowser.get('epiphany').open(music_url, new=0, autoraise=False)
         except:
             pass
 
@@ -66,6 +66,5 @@ class NetEase():
 if __name__ == '__main__':
     test = NetEase()
     music_url = test.get_music_url("南山南")
-    webbrowser.open(music_url)
+    webbrowser.get('epiphany').open(music_url)
 #    test.open_web(music_url)
-
