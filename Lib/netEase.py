@@ -68,4 +68,3 @@ if __name__ == '__main__':
     music_url = test.get_music_url("南山南")
     webbrowser.get('epiphany').open(music_url)
 #    test.open_web(music_url)
-
