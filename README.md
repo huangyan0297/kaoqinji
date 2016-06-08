@@ -6,6 +6,8 @@
 
 ##演示视频：
 
+<iframe height=498 width=510 src="http://player.youku.com/embed/XMTYwMDkzOTk4MA==" frameborder=0 allowfullscreen></iframe>
+
 ##使用方法
 
 1.安装依赖包： 
