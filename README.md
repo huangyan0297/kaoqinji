@@ -6,7 +6,7 @@
 
 ##演示视频：
 
-<iframe height=498 width=510 src="http://player.youku.com/embed/XMTYwMDkzOTk4MA==" frameborder=0 allowfullscreen></iframe>
+[猛戳这里。](http://v.youku.com/v_show/id_XMTYwMDkzOTk4MA==.html#paction)
 
 ##使用方法
 
