@@ -1,21 +1,29 @@
-#RaspberryNetEase ![python](https://img.shields.io/badge/python-2.7-ff69b4.svg)
+# RasWxMusicbox
+#树莓派-微信音乐播放器
+----
 
-通过微信操作的树莓派上的网易播放器
+树莓派微信音乐播放器，使用网易云音乐API，基于[itchat微信框架](https://github.com/littlecodersh/ItChat)。
 
-##使用
+##演示视频：
 
-安装依赖库
+##使用方法
 
-```bash
-pip install itchat
-```
+1.安装依赖包： 
 
-运行程序
+	sudo apt-get install python-imaging
+	sudo apt-get install pillow
 
-```bash
-python run.py
-```
+2.切换到文件目录，执行`python run.py`
 
-##说明
+3.扫码登陆。
 
-扫码登陆个人微信号后向自己的微信号发送音乐名称即可在树莓派/电脑中打开指定歌曲。
+4.发送 `歌曲名` 进行查询，将返回音乐列表，如 `南山南`。
+
+5.发送 `歌曲名 序号` 进行播放，如 `南山南 29` 。
+
+
+##BUG
+
+1.部分音乐失效，系网易云音乐问题，所以有可能播放失败。
+
+
