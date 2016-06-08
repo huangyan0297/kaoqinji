@@ -12,6 +12,7 @@
 
 	sudo apt-get install python-imaging
 	sudo apt-get install pillow
+    sudo apt-get install mpg123
 
 2.切换到文件目录，执行`python run.py`
 
