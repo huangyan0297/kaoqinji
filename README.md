@@ -2,6 +2,26 @@
 #树莓派-微信音乐播放器
 ----
 
+##2017.3.5日更新
+
+[请点击这里使用最新版本的 RasWxNeteaseMusic](https://github.com/yaphone/RasWxNeteaseMusic)。
+
+该版本功能较简单，年假期间对RasWxMusicbox进行了一些新功能的扩展，比如支持登陆个人的网易云音乐账号，支持播放自己收藏的歌单等等，具体功能包括：
+
+- H: 帮助信息
+- L: 登陆网易云音乐
+- U: 用户歌单
+- M: 播放列表
+- N: 下一曲
+- R: 正在播放
+- S: 歌曲搜索
+- T: 热门单曲
+- E: 退出
+
+[请点击这里使用最新版本的 RasWxNeteaseMusic](https://github.com/yaphone/RasWxNeteaseMusic)。
+
+----
+
 树莓派微信音乐播放器，使用网易云音乐API，基于[itchat微信框架](https://github.com/littlecodersh/ItChat)。
 
 ##演示视频：
@@ -14,7 +34,7 @@
 
 	sudo apt-get install python-imaging
 	sudo apt-get install pillow
-    sudo apt-get install mpg123
+	sudo apt-get install mpg123
 
 2.切换到文件目录，执行`python run.py`
 
