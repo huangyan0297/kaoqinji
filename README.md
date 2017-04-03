@@ -2,7 +2,7 @@
 # 树莓派-微信音乐播放器
 ----
 
-## 2017.3.5日更新
+## ！！重要：2017.3.5日更新
 
 [请点击这里使用最新版本的 RasWxNeteaseMusic](https://github.com/yaphone/RasWxNeteaseMusic)。
 
